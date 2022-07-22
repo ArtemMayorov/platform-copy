@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { formCreateDate } from 'helpers/CardHelper.js';
-import defaultAvatar from 'Img/avatar.svg';
+import { defaultAvatar } from 'Img';
+// import defaultAvatar from 'Img/avatar.svg';
 
 import s from './UserInfo.module.scss';
 

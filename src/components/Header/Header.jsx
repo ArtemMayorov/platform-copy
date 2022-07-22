@@ -5,7 +5,8 @@ import { useSelector } from 'react-redux';
 import ArticleButton from 'components/buttons/ArticleButton/ArticleButton';
 import SignButton from 'components/buttons/SignButton/SignButton';
 import UserInfo from 'components/UserInfo/UserInfo';
-import defaultAvatar from 'Img/avatar.svg';
+import { defaultAvatar } from 'Img';
+// import defaultAvatar from 'Img/avatar.svg';
 
 import s from './Header.module.scss';
 
