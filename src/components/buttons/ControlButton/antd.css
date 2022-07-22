@@ -1,0 +1,20 @@
+.ant-modal-mask {
+  background-color: none;
+}
+.ant-modal-content {
+  width: 240px;
+  height: 104px;
+}
+.ant-modal-confirm .ant-modal-body {
+  display: flex;
+  padding: 12px;
+}
+.ant-modal-confirm .ant-modal-confirm-btns {
+  padding: 12px;
+}
+.ant-modal-confirm .ant-modal-body {
+  padding: 12px;
+}
+.ant-modal-confirm .ant-modal-body {
+  padding: 12px;
+}

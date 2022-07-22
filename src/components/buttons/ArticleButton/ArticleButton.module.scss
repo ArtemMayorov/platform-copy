@@ -1,0 +1,26 @@
+.article {
+  text-decoration: none;
+  cursor: pointer;
+
+  border: 1px solid #52c41a;
+  border-radius: 5px;
+  background: none;
+}
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #52c41a;
+  width: 112px;
+  height: 31px;
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .article {
+    margin-left: 10px;
+  }
+  .link {
+    width: 66px;
+  }
+}

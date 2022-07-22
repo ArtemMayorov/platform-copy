@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+.userName {
+  margin-left: 26px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+}
+.avatar {
+  width: 46px;
+  height: 46px;
+  border: 100%;
+  margin-left: 13px;
+}
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.data {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: right;
+}
+@media (min-width: 320px) and (max-width: 600px) {
+  .userName {
+    display: none;
+    &Card {
+      display: block;
+    }
+  }
+}

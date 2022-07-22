@@ -1,0 +1,19 @@
+.ant-pagination-item {
+  border: none;
+  background: none;
+}
+.ant-pagination-item-active {
+  background: #1890ff;
+  color: #ffffff;
+  border-radius: 4px;
+}
+.ant-pagination-item-active a {
+  color: #ffffff;
+  height: 20px;
+}
+
+.ant-pagination-prev .ant-pagination-item-link,
+.ant-pagination-next .ant-pagination-item-link {
+  border: none;
+  background: none;
+}
