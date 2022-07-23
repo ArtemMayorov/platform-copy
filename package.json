@@ -2,7 +2,7 @@
   "name": "blog-platform",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "/build",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@material-ui/core": "^4.12.4",
@@ -39,9 +39,9 @@
     "eject": "react-scripts eject",
     "predeploy": "react-scripts build",
     "deploy": "gh-pages -d build",
-    "lint": "eslint src/**/*",
+    "lint": "eslint src/**",
     "lint:fix": "eslint src/**/*",
-    "format": "prettier --write src/**",
+    "format": "prettier --write ./src/**",
     "prepare": "husky install",
     "pre-commit": "lint-staged"
   },
