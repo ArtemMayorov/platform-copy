@@ -15,8 +15,6 @@ import Loader from 'components/Loader/Loader';
 // eslint-disable-next-line import/order
 import Error from 'components/Error/Error';
 import { emptyLike, fullLike } from 'Img';
-// import emptyLike from '../../../Img/likeEmpty.svg';
-// import fullLike from '../../../Img/likeFull.svg';
 
 import 'antd/dist/antd.css';
 import s from './Article.module.scss';

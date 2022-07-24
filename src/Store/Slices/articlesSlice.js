@@ -2,7 +2,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { getArticlesList, getArticle, createArticle, updateArticle, deleteArticle } from 'Services/ServiceArticles';
 
-// получаем список и количество статей
 export const fetchArticles = createAsyncThunk('articles/fetchArticles', async (offset, { rejectWithValue }) => {
   try {
     const res = await getArticlesList(offset);
@@ -11,21 +10,7 @@ export const fetchArticles = createAsyncThunk('articles/fetchArticles', async (o
     return rejectWithValue(err);
   }
 });
-// export const fetchArticles = createAsyncThunk(
-//   'articles/fetchArticles',
-//   async ({ token, offset }, { rejectWithValue }) => {
-//     try {
-//       const res = await getArticlesList(token, offset);
-//       return res;
-//     } catch (err) {
-//       return rejectWithValue(err);
-//     }
-//   }
-// );
-// получаем отдельную статью
-// export const fetchArticle = createAsyncThunk('articles/fetchArticle', async ({ token, slug }, { rejectWithValue }) => {
-//   try {
-//     const res = await getArticle(token, slug);
+
 export const fetchArticle = createAsyncThunk('articles/fetchArticle', async (slug, { rejectWithValue }) => {
   try {
     const res = await getArticle(slug);
@@ -45,17 +30,7 @@ export const fetchCreateArticle = createAsyncThunk(
     }
   }
 );
-// export const fetchCreateArticle = createAsyncThunk(
-//   'articles/fetchCreateArticle',
-//   async ({ token, articleData }, { rejectWithValue }) => {
-//     try {
-//       const res = await createArticle(token, articleData);
-//       return res;
-//     } catch (err) {
-//       return rejectWithValue(err);
-//     }
-//   }
-// );
+
 export const fetchUpdateArticle = createAsyncThunk(
   'articles/fetchUpdateArticle',
   async ({ slug, articleData }, { rejectWithValue }) => {
@@ -67,17 +42,7 @@ export const fetchUpdateArticle = createAsyncThunk(
     }
   }
 );
-// export const fetchUpdateArticle = createAsyncThunk(
-//   'articles/fetchUpdateArticle',
-//   async ({ token, slug, articleData }, { rejectWithValue }) => {
-//     try {
-//       const res = await updateArticle(token, slug, articleData);
-//       return res;
-//     } catch (err) {
-//       return rejectWithValue(err);
-//     }
-//   }
-// );
+
 export const fetchDeleteArticle = createAsyncThunk(
   'articles/fetchDeleteArticle',
   async ({ slug }, { rejectWithValue }) => {
@@ -89,17 +54,6 @@ export const fetchDeleteArticle = createAsyncThunk(
     }
   }
 );
-// export const fetchDeleteArticle = createAsyncThunk(
-//   'articles/fetchDeleteArticle',
-//   async ({ token, slug }, { rejectWithValue }) => {
-//     try {
-//       const res = await deleteArticle(token, slug);
-//       return res;
-//     } catch (err) {
-//       return rejectWithValue(err);
-//     }
-//   }
-// );
 
 const initialState = {
   articlesData: [],

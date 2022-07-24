@@ -5,8 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Alert } from 'antd';
 
 import ButtonLoader from 'components/buttons/ButtonLoader/ButtonLoader';
-// import Loader from 'components/Loader/Loader';
-// import Error from 'components/Error/Error';
 import {
   deleteRequestStatus,
   fetchUserRegistration,
@@ -51,8 +49,6 @@ function SignForm({ page }) {
     }
     reset();
   };
-
-  // if (error) return <Error />;
 
   return (
     <div className={s.container}>

@@ -1,9 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { userRegistration, userAuthorization, getCurrentUser, updateUser } from 'Services/ServicesUser';
-// import { getArticlesList, getArticle } from 'Services/ServiceArticles';
 
-// регистрация пользователя
 export const fetchUserRegistration = createAsyncThunk(
   'user/fetchUserRegistration',
   async (newUserData, { rejectWithValue }) => {
@@ -15,7 +13,7 @@ export const fetchUserRegistration = createAsyncThunk(
     }
   }
 );
-// авторизация пользователя
+
 export const fetchUserAuthorization = createAsyncThunk(
   'user/fetchUserAuthorization',
   async (userData, { rejectWithValue }) => {
@@ -27,7 +25,7 @@ export const fetchUserAuthorization = createAsyncThunk(
     }
   }
 );
-// получаем авторизованого пользователя
+
 export const fetchCurrentUser = createAsyncThunk('user/fetchCurrentUser', async (_, { rejectWithValue }) => {
   try {
     const res = await getCurrentUser();
@@ -36,7 +34,7 @@ export const fetchCurrentUser = createAsyncThunk('user/fetchCurrentUser', async 
     return rejectWithValue(error.response);
   }
 });
-// обновляем пользователя
+
 export const fetchUpdateUser = createAsyncThunk(
   'user/fetchUpdateUser',
   async ({ newUserData }, { rejectWithValue }) => {
@@ -48,17 +46,6 @@ export const fetchUpdateUser = createAsyncThunk(
     }
   }
 );
-// export const fetchUpdateUser = createAsyncThunk(
-//   'user/fetchUpdateUser',
-//   async ({ token, newUserData }, { rejectWithValue }) => {
-//     try {
-//       const res = await updateUser({ token, newUserData });
-//       return res.data;
-//     } catch (error) {
-//       return rejectWithValue(error.response);
-//     }
-//   }
-// );
 
 const initialState = {
   loading: false,

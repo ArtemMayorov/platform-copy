@@ -19,24 +19,19 @@ export const userAuthorization = async ({ email, password }) => {
       password,
     },
   });
-  // делаем запись токена в cookie, куки будут жить 1 день
   Cookies.set('token', `${res.data.user.token}`, { expires: 1 });
   return res.data;
 };
 
 export const getCurrentUser = async () => {
-  const res = await instance.get('user');
+  const res = await instance.get('user', {
+    headers: {
+      Authorization: `Token ${Cookies.get('token')}`,
+    },
+  });
   return res;
 };
-// export const getCurrentUser = async (token) => {
-//   const res = await instance.get('user', {
-//     headers: {
-//       Authorization: `Token ${token}`,
-//     },
-//   });
 
-//   return res;
-// };
 export const updateUser = async ({ newUserData }) => {
   const res = await instance.put('user', {
     user: newUserData,
@@ -44,18 +39,3 @@ export const updateUser = async ({ newUserData }) => {
 
   return res;
 };
-// export const updateUser = async ({ token, newUserData }) => {
-//   const res = await instance.put(
-//     'user',
-//     {
-//       user: newUserData,
-//     },
-//     {
-//       headers: {
-//         Authorization: `Token ${token}`,
-//       },
-//     }
-//   );
-
-//   return res;
-// };

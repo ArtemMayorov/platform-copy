@@ -9,7 +9,6 @@ import 'antd/dist/antd.css';
 import s from './ControlButton.module.scss';
 
 function ControlButton({ page, handleDeleteStatus }) {
-  // function ControlButton({ token, page, handleDeleteStatus }) {
   const { slug } = useParams();
   const dispatch = useDispatch();
 
