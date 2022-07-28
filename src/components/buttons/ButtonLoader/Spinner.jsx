@@ -2,9 +2,9 @@ import React from 'react';
 import { Spin } from 'antd';
 
 import 'antd/dist/antd.css';
-import s from './ButtonLoader.scss';
+import s from './Spinner.scss';
 
-function ButtonLoader() {
+function Spinner() {
   return (
     <div className={s.wrapper}>
       <Spin size="24" />
@@ -12,4 +12,4 @@ function ButtonLoader() {
   );
 }
 
-export default ButtonLoader;
+export default Spinner;

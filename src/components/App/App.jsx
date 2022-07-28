@@ -15,60 +15,61 @@ import { fetchCurrentUser } from 'Store/Slices/userSlice';
 import Header from '../Header/Header';
 
 import s from './App.module.scss';
+import routs from './routs';
 
 function App() {
   const dispatch = useDispatch();
   const { requestStatus, token, userAuthorizationStatus } = useSelector((state) => state.user);
   const { requestStatusNewArticle, slugArticle } = useSelector((state) => state.articlesList);
+  const { base, articles, slug, signUp, signIN, profile, newArticle, edit } = routs;
 
   useEffect(() => {
     if (Cookies.get('token')) {
       dispatch(fetchCurrentUser());
     }
   }, [dispatch]);
+
   return (
     <div className={s.container}>
       <Router>
         <Header />
         <Switch>
-          <Route exact path="/articles">
+          <Route exact path={articles}>
             <ArticleList />
           </Route>
-          <Route exact path="/articles/:slug?">
+          <Route exact path={`${articles}/:${slug}?`}>
             <ArticlePage />
           </Route>
-          <Route exact path="/sign-up">
-            {requestStatus === 'successfully' ? <Redirect to="/sign-in" /> : <SignUpPage />}
+          <Route exact path={signUp}>
+            {requestStatus === 'successfully' ? <Redirect to={signIN} /> : <SignUpPage />}
           </Route>
-          <Route path="/sign-in">
-            {requestStatus === 'successfully' || userAuthorizationStatus ? <Redirect to="/" /> : <SignInPage />}
+          <Route path={signIN}>
+            {requestStatus === 'successfully' || userAuthorizationStatus ? <Redirect to={base} /> : <SignInPage />}
           </Route>
 
-          <Route path="/profile">
+          <Route path={profile}>
             <ProfileEditPage />
           </Route>
           {token && (
-            <Route path="/new-article">
+            <Route path={newArticle}>
               {requestStatusNewArticle === 'successfully' ? (
-                <Redirect to={`/articles/${slugArticle}`} />
+                <Redirect to={`${articles}/${slugArticle}`} />
               ) : (
                 <CreateArticlePage />
               )}
             </Route>
           )}
-          <Route path="/new-article">
-            {userAuthorizationStatus ? <CreateArticlePage /> : <Redirect to="/sign-in" />}
-          </Route>
+          <Route path={newArticle}>{userAuthorizationStatus ? <CreateArticlePage /> : <Redirect to={signIN} />}</Route>
 
-          <Route path="/articles/:slug?/edit">
+          <Route path={`{${articles}/:${slug}?/${edit}`}>
             {requestStatusNewArticle === 'successfully' ? (
-              <Redirect to={`/articles/${slugArticle}`} />
+              <Redirect to={`${articles}/${slugArticle}`} />
             ) : (
               <EditArticlePage />
             )}
           </Route>
 
-          <Route path="/">
+          <Route path={base}>
             <ArticleList />
           </Route>
         </Switch>

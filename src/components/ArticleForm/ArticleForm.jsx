@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 } from 'uuid';
 
-import ButtonLoader from 'components/buttons/ButtonLoader/ButtonLoader';
+import ButtonLoader from 'components/buttons/ButtonLoader/Spinner';
 import { fetchCreateArticle, deleteRequestStatus, fetchUpdateArticle } from 'Store/Slices/articlesSlice';
 import Error from 'components/Error/Error';
 
@@ -70,6 +70,10 @@ function ArticleForm({ page, article, slug }) {
             placeholder="Title"
             {...register('title', {
               required: '* requared field',
+              minLength: {
+                value: 5,
+                message: ' must be at least 5 characters',
+              },
             })}
           />
         </label>
@@ -85,6 +89,10 @@ function ArticleForm({ page, article, slug }) {
             placeholder="Description"
             {...register('description', {
               required: '* requared field',
+              minLength: {
+                value: 5,
+                message: ' must be at least 5 characters',
+              },
             })}
           />
         </label>
@@ -99,6 +107,10 @@ function ArticleForm({ page, article, slug }) {
             placeholder="Text"
             {...register('body', {
               required: '* requared field',
+              minLength: {
+                value: 5,
+                message: ' must be at least 5 characters',
+              },
             })}
             className={s.markdown}
           />
@@ -111,6 +123,7 @@ function ArticleForm({ page, article, slug }) {
           {tags.map((tag) => (
             <div key={tag.id} className={s.tagContaiter}>
               <input
+                required
                 className={s.tag}
                 type="text"
                 name={tag.id}

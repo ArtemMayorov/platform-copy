@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Pagination } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
 
 import { fetchArticles, setPage, setOffset } from 'Store/Slices/articlesSlice';
 import Loader from 'components/Loader/Loader';
@@ -42,7 +41,7 @@ function CardList() {
 
   return (
     <div className={s.container}>
-      {articles && articles.map((article) => <Article key={uuidv4()} article={article} />)}
+      {articles && articles.map((article) => <Article key={article.createdAt} article={article} />)}
       <div className={s.paginationContainer}>
         <Pagination
           total={articlesCount}

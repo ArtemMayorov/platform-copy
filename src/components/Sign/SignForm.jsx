@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Alert } from 'antd';
 
-import ButtonLoader from 'components/buttons/ButtonLoader/ButtonLoader';
+import Spinner from 'components/buttons/ButtonLoader/Spinner';
 import {
   deleteRequestStatus,
   fetchUserRegistration,
@@ -230,7 +230,7 @@ function SignForm({ page }) {
           </>
         )}
         <button className={s.button} type="submit">
-          {loading && <ButtonLoader />}
+          {loading && <Spinner />}
           {page === 'SignUp' && !loading && 'Create'}
           {page === 'SignIn' && !loading && 'Login'}
           {page === 'Edit' && !loading && 'Save'}
