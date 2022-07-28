@@ -1,4 +1,4 @@
-https://blog-platform-test.vercel.app/
+https://platform-copy-82pt73mds-artemmayorov.vercel.app/
 
 Pеализовать примитивную блог-платформу. Проект реализуем целиком с использованием react hooks.
 
